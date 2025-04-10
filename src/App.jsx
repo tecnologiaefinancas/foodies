@@ -9,6 +9,7 @@ const App = () => {
   return (
     <div>
       <Menubar/>
+
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/contact-us' element={<ContactUs/>} />
