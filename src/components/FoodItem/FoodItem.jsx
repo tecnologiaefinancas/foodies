@@ -6,7 +6,8 @@ const FoodItem = ({name, description, id, imageUrl, price}) => {
     <div
       className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"
     >
-      <div className="card" style={{ maxWidth: "320px" }}>
+      <div className="card" style={{ maxWidth: "320px", "textDecoration": "none" }}>
+      <Link to={`/food/${id}`} className="card-body"  style={{"textDecoration": "none" }}>
         <img
           src={imageUrl}
           className="card-img-top"
@@ -26,11 +27,12 @@ const FoodItem = ({name, description, id, imageUrl, price}) => {
               <small className="text-muted">(4.5)</small>
             </div>
           </div>
-        </div>
+          </div>
+        </Link>
         <div className="card-footer d-flex justify-content-between bg-light">
           <Link className="btn btn-primary btn-sm" to={`/food/${id}`}>View Food</Link>
           <button className="btn btn-outline-secondary btn-sm">
-            <i className="bi bi-heart"></i>
+            <i className="bi bi-plus-circle"></i>
           </button>
         </div>
       </div>
