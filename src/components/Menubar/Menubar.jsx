@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const Menubar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container" >
-        <Link to="/" style={{"textDecoration": "none", "color": "inherit"}}>
+      <div className="container">
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           Foodies
         </Link>
         <button
@@ -39,10 +39,14 @@ const Menubar = () => {
             </li>
           </ul>
           <div className="menubar-right">
-            <div className="position-relative">
-              <i className="bi bi-cart4 fs-5"></i>
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">5</span>
-            </div>
+            <Link to={`/cart`}>
+              <div className="position-relative">
+                <i className="bi bi-cart4 fs-5"></i>
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                  5
+                </span>
+              </div>
+            </Link>
             <button className="btn btn-outline-primary">Login</button>
             <button className="btn btn-outline-success">Register</button>
           </div>
