@@ -3,7 +3,7 @@ import icecream from './icecream.png';
 
 export const categories = [
     {
-        category: 'Ice Creams',
+        category: 'Ice Cream',
         icon: icecream
     },
     {

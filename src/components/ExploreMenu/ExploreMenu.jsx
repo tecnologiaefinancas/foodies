@@ -4,7 +4,7 @@ import './ExploreMenu.css'
 
 
 
-const ExploreMenu = () => {
+const ExploreMenu = ({category, setCategory}) => {
 
     const menuRef = useRef(null);
     const scrollLeft = () => {
@@ -21,7 +21,7 @@ const ExploreMenu = () => {
 
 
   return (
-    <div className="explore-menu position-relative" style={{ paddingLeft: '50px', paddingRight: '50px' }}>
+    <div className=" container explore-menu position-relative" style={{ paddingLeft: '50px', paddingRight: '50px' }}>
         <h1 className="d-flex align-items-center justify-content-between">
             Explore Our Menu
             <div className="d-flex">
@@ -34,8 +34,8 @@ const ExploreMenu = () => {
             {
                 categories.map((item, index) => {
                     return (
-                        <div key={index} className="text-center explore-menu-list-item">
-                            <img src={item.icon} className='rounded-circle' height={128}/>
+                        <div key={index} className="text-center explore-menu-list-item" onClick={() => setCategory(prev => prev === item.category ? 'All': item.category)}>
+                            <img src={item.icon} className={item.category === category ? 'rounded-circle active': 'rounded-circle'} height={128}/>
                             <p className="mt-2 fw-bold">{item.category}</p>
                         </div>
                     )
