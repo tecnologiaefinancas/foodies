@@ -19,7 +19,7 @@ const FoodDisplay = ({category, searchText}) => {
             description={food.description}
             id={food.id}
             imageUrl={food.imageUrl}
-            price={food.price} />
+            price={(food.price).toFixed(2)} />
           
         ))) : (
           <div className="text-center mt-4">
