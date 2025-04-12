@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const Menubar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container">
-        <Link className="navbar-brand" to="/">
+      <div className="container" >
+        <Link to="/" style={{"textDecoration": "none", "color": "inherit"}}>
           Foodies
         </Link>
         <button
