@@ -6,6 +6,7 @@ import ContactUs from './pages/ContactUs/ContactUs';
 import ExploreFood from './pages/ExploreFood/ExploreFood';
 import FoodDetails from './pages/FoodDetails/FoodDetails';
 import Cart from './pages/Cart/Cart';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 
 const App = () => {
   return (
@@ -14,10 +15,12 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={<Home />}/>
+        <Route path='/home' element={<Home />}/>
         <Route path='/contact-us' element={<ContactUs/>} />
         <Route path='/explore-food' element={<ExploreFood />} />
         <Route path='/food/:id' element={<FoodDetails />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/order' element={<PlaceOrder />} />
       </Routes>
     </div>
   )
