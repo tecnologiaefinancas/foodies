@@ -6,11 +6,18 @@ import { StoreContext } from "../../context/StoreContext";
 const Menubar = () => {
   const [active, setActive] = useState('home');
 
-  const{quantities} = useContext(StoreContext);
+  const{quantities, token, setToken, setQuantities} = useContext(StoreContext);
 
   const uniqueItemsInCart = Object.values(quantities).filter(qty => qty > 0).length;
 
   const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    setToken("");
+    setQuantities({});
+    navigate("/login");
+  }
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -56,8 +63,19 @@ const Menubar = () => {
                 </span>
               </div>
             </Link>
-            <button className="btn btn-outline-primary" onClick={() => navigate('/login')}>Login</button>
-            <button className="btn btn-outline-success" onClick={() => navigate('/register')}>Register</button>
+
+            {
+              !token ? <>            <button className="btn btn-outline-primary" onClick={() => navigate('/login')}>Login</button>
+            <button className="btn btn-outline-success" onClick={() => navigate('/register')}>Register</button></> : 
+            <div className="dropdown text-end">
+              <a href="#" className="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <i className="bi bi-person fs-5"></i>
+                </a>
+                <ul className="dropdown-menu text-small">
+                  <li className="dropdown-item" onClick={() => navigate("myorders")}>Orders</li>
+                  <li className="dropdown-item" onClick={logout}>Logout</li>
+                  </ul></div>
+            }
           </div>
         </div>
       </div>
